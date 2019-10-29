@@ -1,2 +1,17 @@
 language: java
-mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+
+dist: trusty
+sudo: false
+
+# Get latest install-jdk.sh script
+before_install:
+  - wget https://github.com/sormuras/bach/raw/master/install-jdk.sh
+
+matrix:
+  include:
+# Java 8 "Oracle JDK"
+    - env: JDK='Oracle JDK 8'
+      install: . ./install-jdk.sh -F 8 -L BCL
+# Java 8 "OpenJDK"
+    - env: JDK='OpenJDK 8'
+      install: . ./install-jdk.sh -F 8 -L GPL

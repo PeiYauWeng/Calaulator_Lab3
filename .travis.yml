@@ -15,3 +15,4 @@ matrix:
 # Java 10 "OpenJDK"
     - env: JDK='OpenJDK 10'
       install: . ./install-jdk.sh -F 10 -L GPL
+install: ant deps
